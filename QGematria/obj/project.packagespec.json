@@ -1,0 +1,31 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj",
+    "projectName": "QGematria",
+    "projectPath": "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj",
+    "outputPath": "/home/c0/Projects/RiderProjects/QGematria/QGematria/obj/",
+    "projectStyle": "PackageReference",
+    "originalTargetFrameworks": [
+      "net48"
+    ],
+    "sources": {
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "net48": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "net48": {
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+    }
+  }
+}

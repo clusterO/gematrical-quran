@@ -1,0 +1,43 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj": {}
+  },
+  "projects": {
+    "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj",
+        "projectName": "QGematria",
+        "projectPath": "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj",
+        "packagesPath": "/home/c0/.nuget/packages/",
+        "outputPath": "/home/c0/Projects/RiderProjects/QGematria/QGematria/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/c0/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
