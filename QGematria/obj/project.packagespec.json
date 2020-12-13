@@ -1,11 +1,14 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj",
+    "projectUniqueName": "/home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/QGematria.csproj",
     "projectName": "QGematria",
-    "projectPath": "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj",
-    "outputPath": "/home/c0/Projects/RiderProjects/QGematria/QGematria/obj/",
+    "projectPath": "/home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/QGematria.csproj",
+    "outputPath": "/home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/obj/",
     "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "/usr/share/dotnet/sdk/NuGetFallbackFolder"
+    ],
     "originalTargetFrameworks": [
       "net48"
     ],
@@ -25,7 +28,15 @@
   },
   "frameworks": {
     "net48": {
-      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/5.0.102/RuntimeIdentifierGraph.json"
+      "dependencies": {
+        "Microsoft.NETFramework.ReferenceAssemblies": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[1.0.2, )",
+          "autoReferenced": true
+        }
+      },
+      "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/6.0.407/RuntimeIdentifierGraph.json"
     }
   }
 }

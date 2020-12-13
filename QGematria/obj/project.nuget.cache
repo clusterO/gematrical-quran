@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "aOmL4IY4nSWVt5SnNy1t9pg3U3DC8VlqJYcBC3NJi1mz+mFruLH2S8DGMQ2TgU/aEZjCTiI1eOwgmHiPZCN9hg==",
+  "dgSpecHash": "weje1VHTEtqKr6F1q3Nq+Gb1y+hVtkcUxrxvXk1B59Iy6f7WjiJuVSCD57FQaEK//6xB2UkY+FJNP+hHX7wOhg==",
   "success": true,
-  "projectFilePath": "/home/c0/Projects/RiderProjects/QGematria/QGematria/QGematria.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/QGematria.csproj",
+  "expectedPackageFiles": [
+    "/home/c0/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.2/microsoft.netframework.referenceassemblies.1.0.2.nupkg.sha512",
+    "/home/c0/.nuget/packages/microsoft.netframework.referenceassemblies.net48/1.0.2/microsoft.netframework.referenceassemblies.net48.1.0.2.nupkg.sha512"
+  ],
   "logs": []
 }
