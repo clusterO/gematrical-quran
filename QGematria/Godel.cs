@@ -27,13 +27,10 @@ namespace QGematria
 
             return gSentence.ToString().Trim();
         }
-    }
-}
 
-// Arithmetization A(155,555,155, m=m) -> true ||| A(n,p)
-public static bool Arithmetization(string values, string variable)
+        // Arithmetization A(155,555,155, m=m) -> true
+        public static bool Arithmetization(string values, string variable)
         {
-            // Parse the values to extract the individual numbers
             string[] valueStrings = values.Split(',');
             int[] nums = Array.ConvertAll(valueStrings, int.Parse);
 
@@ -45,7 +42,6 @@ public static bool Arithmetization(string values, string variable)
                 result = (int)Math.Pow(result, exponent);
             }
 
-            // Check if the arithmetization result matches the assigned variable's value
             int variableValue;
             if (Data.GodelValues.TryGetValue(variable, out variableValue))
             {
@@ -54,5 +50,16 @@ public static bool Arithmetization(string values, string variable)
 
             return false;
         }
-        
-// Substitution S(l,m,n) |||| 
+
+        // Substitution S(l,m,n)
+        public static string Substitution(string l, string m, string n)
+        {
+            string result = l;
+            result = result.Replace(m, n);
+
+            return result;
+        }
+    }
+}
+
+
