@@ -42,11 +42,12 @@ namespace QGematria
                 result = (int)Math.Pow(result, exponent);
             }
 
+            /*
             int variableValue;
             if (Data.GodelValues.TryGetValue(variable, out variableValue))
             {
                 return result == variableValue;
-            }
+            }*/
 
             return false;
         }

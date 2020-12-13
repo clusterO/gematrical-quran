@@ -1,53 +1,62 @@
 using System;
+using System.Text;
 
 namespace QGematria
 {
     public class Jafr
     {
-        public static string BigJafr(string Sentence)
+        public static string BigJafr(string sentence)
         {
-            string NumericalLine = string.Empty;
-            string[] Words = Sentence.Split(' ');
+            var numericalLine = new StringBuilder();
+            var words = sentence.Split(' ');
 
-            foreach (string Word in Words)
+            foreach (var word in words)
             {
-                int Sum = 0;
-                for (int i = 0; i < Word.Length; i++)
+                int sum = 0;
+                foreach (var character in word)
                 {
-                    if (Data.GematricalValues.ContainsKey(Word[i]))
-                        Sum += Data.GematricalValues[Word[i]];
+                    if (Data.GematricalValues.TryGetValue(character, out var value))
+                    {
+                        sum += value;
+                    }
                 }
 
-                NumericalLine += Sum + " ";
+                numericalLine.Append(sum).Append(' ');
             }
 
-            return NumericalLine.Trim();
+            return numericalLine.ToString().Trim();
         }
+
+
         public static string SmallJafr(string Sentence)
         {
             return String.Empty;
         }
-        public static string JafrSequence(string Sentence, char Separator)
-        {
-            string Sequence = string.Empty;
-            string[] Words = Sentence.Split(' ');
 
-            foreach (string Word in Words)
+        public static string JafrSequence(string sentence, char separator)
+        {
+            StringBuilder sequence = new StringBuilder();
+            string[] words = sentence.Split(' ');
+
+            foreach (string word in words)
             {
-                string Seq = string.Empty;
-                for (int i = 0; i < Word.Length; i++)
+                StringBuilder seq = new StringBuilder();
+                for (int i = 0; i < word.Length; i++)
                 {
-                    if (Data.GematricalValues.ContainsKey(Word[i]))
-                        if (i == Word.Length - 1)
-                            Seq += $"{Data.GematricalValues[Word[i]]} ";
-                        else
-                            Seq += $"{Data.GematricalValues[Word[i]]}{Separator}";
+                    if (Data.GematricalValues.ContainsKey(word[i]))
+                    {
+                        seq.Append(Data.GematricalValues[word[i]]);
+                        if (i != word.Length - 1)
+                        {
+                            seq.Append(separator);
+                        }
+                    }
                 }
 
-                Sequence += Seq;
+                sequence.Append(seq.ToString()).Append(' ');
             }
 
-            return Sequence.Trim();
+            return sequence.ToString().Trim();
         }
     }
 }
