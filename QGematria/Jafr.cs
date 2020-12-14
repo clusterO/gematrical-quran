@@ -7,17 +7,17 @@ namespace QGematria
     {
         public static string BigJafr(string sentence)
         {
-            var numericalLine = new StringBuilder();
-            var words = sentence.Split(' ');
+            StringBuilder numericalLine = new StringBuilder();
+            string[] words = sentence.Split(' ');
 
-            foreach (var word in words)
+            foreach (string word in words)
             {
                 int sum = 0;
-                foreach (var character in word)
+                foreach (char c in word)
                 {
-                    if (Data.GematricalValues.TryGetValue(character, out var value))
+                    if (Data.GematricalValues.ContainsKey(c))
                     {
-                        sum += value;
+                        sum += Data.GematricalValues[c];
                     }
                 }
 
@@ -26,7 +26,6 @@ namespace QGematria
 
             return numericalLine.ToString().Trim();
         }
-
 
         public static string SmallJafr(string Sentence)
         {

@@ -11,9 +11,11 @@ namespace QGematria
             string outputFile = Data.GematricalQuran;
             string godelOutputFile = Data.GodelGematria;
 
+            Console.WriteLine("start processing.");
+
             ProcessTextFile(inputFile, outputFile, godelOutputFile);
 
-            Console.WriteLine("Processing complete.");
+            Console.WriteLine("processing complete.");
         }
 
         static void ProcessTextFile(string inputFile, string outputFile, string godelOutputFile)
@@ -32,6 +34,9 @@ namespace QGematria
                     godelWriter.WriteLine(godelNumber);
                 }
             }
+
+            StatisticalAnalysis.AnalyzeFrequency();
+            StatisticalAnalysis.CalculateWordLengthStats();
         }
     }
 }
