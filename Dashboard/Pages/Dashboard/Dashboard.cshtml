@@ -1,1 +1,53 @@
 @page "/dashboard"
+@model DashboardModel
+
+<h2>Dashboard</h2>
+
+<div id="chart-container"></div>
+
+@section Scripts {
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script>
+    var wordCoordinates = @Html.Raw(Json.Serialize(Model.WordCoordinates));
+
+    // Extract x, y, z coordinates from wordCoordinates
+    var data = Object.values(wordCoordinates).map((values) => values.slice(0, 3));
+
+    // Set up the chart dimensions
+    var margin = { top: 20, right: 20, bottom: 20, left: 20 };
+    var width = 940 - margin.left - margin.right;
+    var height = 600 - margin.top - margin.bottom;
+
+    // Create an SVG element
+    var svg = d3.select("#chart-container")
+        .append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    // Define the scales for x, y, and z coordinates
+    var xScale = d3.scaleLinear()
+        .domain(d3.extent(data, d => d[0]))
+        .range([0, width]);
+
+    var yScale = d3.scaleLinear()
+        .domain(d3.extent(data, d => d[1]))
+        .range([height, 0]);
+
+    var zScale = d3.scaleLinear()
+        .domain(d3.extent(data, d => d[2]))
+        .range([1, 5]); // Adjust the range to reduce the circle size
+
+    // Add circles for each data point
+    svg.selectAll("circle")
+        .data(data)
+        .enter()
+        .append("circle")
+        .attr("cx", d => xScale(d[0]))
+        .attr("cy", d => yScale(d[1]))
+        .attr("r", d => zScale(d[2]))
+        .attr("fill", "rgba(70, 130, 180, 0.5)"); // Use semi-transparent fill color
+</script>
+
+}

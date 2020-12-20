@@ -12,7 +12,7 @@ namespace Dashboard.Controllers
             // Perform any necessary data processing or analysis
 
             // Pass the processed data to the view
-            return View(data);
+            return View();
         }
 
         private object GetStatisticsData()
