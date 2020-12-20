@@ -2,29 +2,27 @@ using System;
 using System.IO;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace QGematria
 {
     public class StatisticalAnalysis
     {
-        public static void AnalyzeFrequency()
+        public static Dictionary<string, int> AnalyzeFrequency(string path = null)
         {
-            string filePath = Data.GematricalQuran;
-
+            string filePath = path != null ? path : Data.GematricalQuran;
+            
             if (!File.Exists(filePath))
             {
-                Console.WriteLine("GematricalQuran.txt file does not exist.");
-                return;
+                Console.WriteLine("Gematrical Quran file does not exist.");
+                return new Dictionary<string, int>();
             }
 
             string text = File.ReadAllText(filePath);
             Dictionary<string, int> frequencyMap = CalculateWordFrequency(text);
 
-            Console.WriteLine("Word Frequency Analysis:");
-            foreach (var entry in frequencyMap)
-            {
-                Console.WriteLine($"{entry.Key}: {entry.Value}");
-            }
+            return frequencyMap;
         }
 
         private static Dictionary<string, int> CalculateWordFrequency(string text)
@@ -43,7 +41,7 @@ namespace QGematria
                     frequencyMap[word] = 1;
                 }
             }
-
+        
             return frequencyMap;
         }
 
@@ -53,7 +51,7 @@ namespace QGematria
 
             if (!File.Exists(filePath))
             {
-                Console.WriteLine("GematricalQuran.txt file does not exist.");
+                Console.WriteLine("Gematrical Quran file does not exist.");
                 return;
             }
 
@@ -78,6 +76,78 @@ namespace QGematria
             }
 
             return wordLengths;
+        }
+
+        public static Dictionary<string, List<double>> AssignWordCoordinates(string path = null)
+        {
+            string filePath = path != null ? path : Data.GematricalQuran;
+            
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine("Gematrical Quran file does not exist.");
+                return new Dictionary<string, List<double>>();
+            }
+
+            string[] lines = File.ReadAllLines(filePath);
+            Dictionary<string, List<double>> wordCoordinates = new Dictionary<string, List<double>>();
+
+            foreach (string line in lines)
+            {
+                string[] words = line.Split(' ');
+
+                for (int i = 0; i < words.Length; i++)
+                {
+                    string word = words[i];
+
+                    if (!wordCoordinates.ContainsKey(word))
+                    {
+                        wordCoordinates[word] = new List<double>();
+                    }
+
+                    if (i > 0)
+                    {
+                        double distance = Math.Abs(Convert.ToDouble(words[i]) - Convert.ToDouble(words[i - 1]));
+                        wordCoordinates[word].Add(distance);
+                    }
+                }
+            }
+
+            return wordCoordinates;
+        }
+
+        public static double CalculateCorrelation(string path = null)
+        {
+            string filePath = path != null ? path : Data.GematricalQuran;
+
+            if (!File.Exists(filePath))
+            {
+                Console.WriteLine("Gematrical Quran file does not exist.");
+                return 0.0;
+            }
+
+            List<List<double>> data = ReadDataFromFile(filePath);
+
+            if (data.Count < 2)
+            {
+                Console.WriteLine("Insufficient data to calculate correlation.");
+                return 0.0;
+            }
+
+            List<double> data1 = data[0];
+            List<double> data2 = data[1];
+
+            if (data1.Count != data2.Count)
+            {
+                Console.WriteLine("The data sets must have the same length.");
+                return 0.0;
+            }
+
+            List<Tuple<double, double>> combinedData = CombineData(data1, data2);
+
+            StatisticalAnalysis analysis = new StatisticalAnalysis();
+            double correlation = analysis.CalculateCorrelation(combinedData);
+
+            return correlation;
         }
     }
 }

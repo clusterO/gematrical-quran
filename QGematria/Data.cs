@@ -4,9 +4,9 @@ namespace QGematria
 {
     public class Data
     {
-        public static string GematricalQuran { get; } = "../Quran/GematricalQuran.txt";
-        public static string QuranTXT { get; } = "../Quran/quran-clean.txt";
-        public static string GodelGematria { get; } = "../Quran/GodelGematria.txt";
+        public static string GematricalQuran { get; } = "./Quran/GematricalQuran.txt";
+        public static string QuranTXT { get; } = "./Quran/quran-clean.txt";
+        public static string GodelGematria { get; } = "./Quran/GodelGematria.txt";
 
         public static Dictionary<char, int> GematricalValues { get; } = new Dictionary<char, int>
         {

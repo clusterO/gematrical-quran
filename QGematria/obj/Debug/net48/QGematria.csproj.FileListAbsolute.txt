@@ -29,3 +29,5 @@
 /home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/obj/Debug/net48/QGematria.csproj.CoreCompileInputs.cache
 /home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/obj/Debug/net48/QGematria.exe
 /home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/obj/Debug/net48/QGematria.pdb
+/home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/bin/Debug/net48/Newtonsoft.Json.dll
+/home/c0/Corporation/Business/Product/Semicolon/Dev/Codebase/Languages/DotNet/QGematria/QGematria/obj/Debug/net48/QGematria.csproj.CopyComplete

@@ -34,9 +34,6 @@ namespace QGematria
                     godelWriter.WriteLine(godelNumber);
                 }
             }
-
-            StatisticalAnalysis.AnalyzeFrequency();
-            StatisticalAnalysis.CalculateWordLengthStats();
         }
     }
 }
